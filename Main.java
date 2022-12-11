@@ -1,38 +1,24 @@
 import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        // Değişkenleri oluştur.
-        int mat,fizik,kimya,turkce,tarih,muzik;
+        double tutar, kdvOran= 0.18 ,kdvTutar , kdvliTutar ;
+        Scanner input = new Scanner(System.in);
 
-        // Scanner sınıfımızı tanımladık
-        Scanner inp = new Scanner(System.in);
+        System.out.println("Ücret tutarını giriniz: ");
+        tutar = input.nextDouble();
 
-        // Kullanıcıdan değerleri al
-        System.out.print("Matematik Notunuz : ");
-        mat = inp.nextInt();
+        kdvTutar= tutar * kdvOran;
+        kdvliTutar = tutar + kdvTutar;
 
-        System.out.print("Fizik Notunuz : ");
-        fizik = inp.nextInt();
+        System.out.println("KDV'siz Tutar" + tutar);
+        System.out.println("KDV Oranı : " + kdvOran);
+        System.out.println("KDV Tutarı: " + kdvTutar);
+        System.out.println("KDV'li Tutar:"+ kdvliTutar);
 
-        System.out.print("Kimya Notunuz : ");
-        kimya = inp.nextInt();
+        boolean kosul = tutar<=1000;
+        kdvOran = kosul?0.18:0.08;
 
-        System.out.print("Türkçe Notunuz : ");
-        turkce = inp.nextInt();
-
-        System.out.print("Tarih Notunuz : ");
-        tarih = inp.nextInt();
-
-        System.out.print("Müzik Notunuz : ");
-        muzik = inp.nextInt();
-
-        int toplam = (mat + fizik + kimya + turkce + tarih + muzik);
-        double sonuc = toplam / 6;
-        System.out.println(" Ortalamanız :" + sonuc);
-
-        boolean ortalama = sonuc >= 60 ;
-        String çıktı = ortalama? "Sınıfı geçtiniz":"Sınıfta kaldınız";
-        System.out.println(çıktı);
 
     }
 }
